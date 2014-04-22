@@ -1,0 +1,58 @@
+<template name="requests_list">
+  <h2>Requests From your System</h2>
+  <input type="button" id="get-requests-button" value="Update List" class="btn" />
+  <input type="button" id="toggle-requests-button" value="Show/Hide Requests" class="btn" />
+  <div id="requests_list_div">
+    <table class="table table-bordered table-hover table-condensed"><tbody>
+    <tr>
+      <th>Parent Domain</th>
+      <th>Domain</th>
+      <th>Type</th>
+      <th>URL</th>
+      <th>#Requests</th>
+    </tr>
+    {{#each request_table}}
+      {{> request_info}}
+    {{else}}
+    <tr><td>No Requests Yet</td></tr>
+    {{/each}}
+    </tbody></table>
+  </div>
+</template>
+
+<template name="request_info">
+  <tr class="request-row">
+    <td>
+      {{> domain_info parent_domain}}
+    </td>
+    <td>
+      {{> domain_info current_domain}}
+   </td>
+    <td>{{type}}</td>
+    <td class="url-text">{{_id}}</td>
+    <td>{{num_requests}}</td>
+  </tr>
+</template>
+
+<template name="domain_info">
+      {{domain}}<br />
+      {{#if marker 'none'}}
+        <span class="glyphicon glyphicon-{{icon}}"></span>
+      {{else}}
+      <div class="btn-group">
+        <button type="button" class="domain-safe-btn btn btn-default btn-success btn-xs">
+          <span class="glyphicon glyphicon-tree-conifer"></span>
+        </button>
+         <button type="button" class="domain-ad-btn btn btn-default btn-warning btn-xs">
+          <span class="glyphicon glyphicon-usd"></span>
+        </button>
+        <button type="button" class="domain-anal-btn btn btn-default btn-warning btn-xs">
+          <span class="glyphicon glyphicon-stats"></span>
+        </button>
+        <button type="button" class="domain-soc-btn btn btn-default btn-info btn-xs">
+          <span class="glyphicon glyphicon-thumbs-up"></span>
+        </button>
+      </div>
+     {{/if}}
+ 
+</template>

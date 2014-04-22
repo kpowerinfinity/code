@@ -1,0 +1,45 @@
+<head>
+  <title>My World</title>
+</head>
+
+<body>
+  <div class="navbar navbar-static-top navbar-inverse">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="/">KK's World</a>
+
+
+        {{> color_list}}
+      </div>
+    </div>
+  </div>
+
+  {{>add_color }}
+
+  {{> cookies_list}}
+
+  {{> requests_list}}
+</body>
+<template name="color_list">
+    <ul class="nav pull-right">
+    {{#each colors}}
+      {{> color_info}}
+  {{else}}
+    No Colors Yet
+  {{/each}}
+    </ul>
+</template>
+
+<template name="add_color">
+  <div class="new_color">
+  {{#if error}}
+    <span id="error" style="color: red">{{error}}</span>
+  {{/if}}
+  <input id="new_color_name" type="text" name="addColorName" value="My Color Here" />
+  <input type="button" class="btn-info add-color" value="Add Color" />
+  </div>
+</template>
+
+<template name="color_info">
+  <li class="color-nav-item">{{name}} <input type="button" value="X" class="delete" /></li>
+</template>

@@ -1,0 +1,53 @@
+<!-- Cookies Related Templates -->
+<template name="cookies_list">
+  <h2>Cookies List</h2>
+  <input type="button" id="get-cookies-button" value="Update List" class="btn" />
+  <input type="button" id="hide-cookies-button" value="Show/Hide Cookies" class="btn" />
+  <div id="cookies_list_div">
+    {{#if selected_cookies}}
+      <div class="details">
+        SELECTED: {{selected_cookies}}<br />
+      </div>
+    {{else}}
+      <div class="none">Click a Cookie</div>
+    {{/if}}
+
+  <table class="table table-bordered table-hover table-condensed"><tbody>
+    <tr><th>Domain</th><th>Number of Cookies</th></tr>
+    {{#each cookie_result}}
+      {{> cookie_domain_info}}
+    {{else}}
+      <tr><td>No Cookies Yet</td></tr>
+    {{/each}}
+  </tbody></table>
+  </div>
+</template>
+
+<template name="cookie_domain_info">
+  <tr class="cookie-row {{selected_row}}">
+    <td>{{_id}}</td>
+    <td>{{numCookies}}
+    {{#if selected_cookies}}
+    <td>
+      <table class="table table-bordered table-condensed">
+        <tr><td>Path</td><td>Name</td><td>Value</td></tr>
+        {{#each selected_cookies}}
+          {{> selected_cookie_info}}
+        {{/each}}
+      </table>
+    </td>
+    {{/if}}
+    </td>
+  </tr>
+
+</template>
+
+<template name="selected_cookie_info">
+<tr>
+ <td>{{domain}}</td>
+ <td>{{name}}</td>
+ <td>{{expirationDate}}</td>
+</tr>
+</template>
+
+

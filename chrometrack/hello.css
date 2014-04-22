@@ -1,0 +1,11 @@
+@import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap-glyphicons.css");
+
+.color-nav-item {
+  padding: 10px;
+  margin: 10px;
+}
+
+.url-text {
+  width: 150px;
+  word-wrap: break-word;
+}
