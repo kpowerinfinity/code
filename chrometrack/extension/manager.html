@@ -1,0 +1,48 @@
+<html><head>
+		<style>
+			table {
+				border-collapse: collapse;
+			}
+			td {
+				border: 1px solid black;
+				padding-left: 5px;
+			}
+			td.button {
+				border: none;
+			}
+			td.cookie_count {
+				text-align: right;
+			}
+		</style>
+		<script src="jquery-2.1.0.js"></script>
+		<script src="url.js"></script>
+		<script src="manager.js"></script>
+	</head>
+	<body>
+		<h2>Tracking Controls</h2>
+		<input type="button" id="upload-old-cookies" name="upload-old" value="Upload Old Cookies" /><br />
+		<input type="checkbox" id="track-cookies" name="track-cookies" value="Track-Cookies" />Track Cookies. Uploaded <span id="num-cookies">0</span> so far<br />
+		<input type="checkbox" id="track-requests" name="track-requests" value="Track-Requests" />Track Requests. Made <span id="num-requests">0</span> so far <br />
+		<h2>Cookies List</h2>
+                <div id="cookieslist"></div>
+                <p>Older List</p>
+		<button id="remove_button">DELETE ALL</button>
+		<div id="filter_div">
+			Filter: <input id="filter" type="text">
+			<button>x</button>
+		</div>
+		<br />
+		<div id="summary_id">
+			Showing <span id="filter_count"></span> of <span id="total_count"></span> cookie domains
+			<span id="delete_all_button"></span>
+		</div>
+		<br />
+		<table id="cookies">
+			<tr class="header">
+				<th>Name</th>
+				<th>#cookies</th>
+			</tr>
+		</table>
+	</body>
+	</html>
+
